@@ -90,6 +90,24 @@ namespace VirtualPet
 
             do
             {
+                //Mood variable and if statment for menu
+                string vPetSmile = (":)");
+
+                if (myPet.happiness >= 8)
+                {
+                    vPetSmile = (":)");
+                }
+
+                else if (myPet.happiness <= 4)
+                {
+                    vPetSmile = (":(");
+                }
+
+                else
+                {
+                    vPetSmile = (":|");
+                }
+
                 //The Different types of interactions with the pet
                 //Left quit on the 10 option instead of 7 so its not accidentally hit by user
 
@@ -102,9 +120,10 @@ namespace VirtualPet
 
                 //Main Menu
                 Console.WriteLine();
-                Console.WriteLine("{0} The {1}", vPetName, vPetType);
+                Console.WriteLine("{0} the {1}", vPetName, vPetType);
+                Console.WriteLine("Current Mood: {0}", vPetSmile);
                 Console.WriteLine("Please select an option");
-                Console.WriteLine("1. Feed {0}", vPetName);
+                Console.WriteLine("\n1. Feed {0}", vPetName);
                 Console.WriteLine("2. Walk {0}", vPetName);
                 Console.WriteLine("3. Pet {0}", vPetName);
                 Console.WriteLine("4. Talk to {0}", vPetName);
@@ -173,7 +192,7 @@ namespace VirtualPet
 
                     //Quit
                     case 10:
-                        Console.WriteLine("\nReleasing {0} back into the wild", myPet.name);
+                        Console.WriteLine("\nReleasing {0} back into the wild to be happy and free", myPet.name);
                         System.Threading.Thread.Sleep(1000);
                         Console.WriteLine("\nThanks for playing {0}!", usersName);
                         Console.ReadKey();
